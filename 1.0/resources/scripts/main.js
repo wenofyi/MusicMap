@@ -70,17 +70,3 @@ function highlightNotes() {
 
 // Render voice
 voice.draw(context, stave);
-
-
-
-// function colorChange() {
-// 	var buttons = document.getElementById("BtnBluesSc-1");
-// 	buttons.style.backgroundColor = "#000000";
-// }
-
-// 	var x = document.getElementById("BtnBluesSc-1");
-// 	x.addEventListener("mouseover",myAlert);
-
-// 	function myAlert() {
-// 		alert("What?");
-// 	}
