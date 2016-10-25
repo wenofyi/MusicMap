@@ -1,81 +1,86 @@
-//create the context for the web audio
-var audioCtx = new AudioContext();
-// we create the gain module, named as volume, and connect it to our
-var volume = audioCtx.createGain();
-volume.connect(audioCtx.destination);
+VF = Vex.Flow;
+
+// Create an SVG renderer and attach it to the DIV element named "boo".
+var div = document.getElementById("img-blu-sc-c")
+var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
+
+// Configure the rendering context.
+renderer.resize(800, 200);
+var context = renderer.getContext();
+context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
+
+// Create a stave of width 400 at position 10, 40 on the canvas.
+var stave = new VF.Stave(10, 40, 780);
+
+// Add a clef and time signature.
+stave.addClef("treble");
+
+// Connect it to the rendering context and draw!
+stave.setContext(context).draw();
+
+var notes = [
+  new VF.StaveNote({ keys: ["c/4"], duration: "w" }),
+  new VF.StaveNote({ keys: ["eb/4"], duration: "w" }).addAccidental(0, new VF.Accidental("b")),
+  new VF.StaveNote({ keys: ["f/4"], duration: "w" }),
+  new VF.StaveNote({ keys: ["f#/4"], duration: "w" }).addAccidental(0, new VF.Accidental("#")),
+  new VF.StaveNote({ keys: ["g/4"], duration: "w" }),
+  new VF.StaveNote({ keys: ["bb/4"], duration: "w" }).addAccidental(0, new VF.Accidental("b")),
+  new VF.StaveNote({ keys: ["c/5"], duration: "w" }),
+  new VF.StaveNote({ keys: ["bb/4"], duration: "w" }).addAccidental(0, new VF.Accidental("b")),
+  new VF.StaveNote({ keys: ["g/4"], duration: "w" }),
+  new VF.StaveNote({ keys: ["f#/4"], duration: "w" }).addAccidental(0, new VF.Accidental("#")),
+  new VF.StaveNote({ keys: ["f/4"], duration: "w" }),
+  new VF.StaveNote({ keys: ["eb/4"], duration: "w" }).addAccidental(0, new VF.Accidental("b")),
+  new VF.StaveNote({ keys: ["c/4"], duration: "w" }),
+];
+
+var voice = new VF.Voice({num_beats: 13,  beat_value: 1});
+voice.addTickables(notes);
+
+// Format and justify the notes to 400 pixels.
+var formatter = new VF.Formatter().joinVoices([voice]).format([voice], 760);
+
+//FAILED highlighting notes over time
+var currentNote = 0;
+var prevNote = currentNote - 1;
+
+var myInterval = setInterval(highlightNotes, 200);
+
+function highlightNotes() {
+	if(currentNote>=notes.length){
+		notes[prevNote].setStyle({fillStyle: "black"});
+		voice.draw(context,stave);
+		clearInterval(myInterval);
+	}
+	else if(currentNote==0){
+		notes[currentNote].setStyle({fillStyle: "red"});
+		voice.draw(context,stave);
+		currentNote++;
+		prevNote++;
+	}
+	else {
+		notes[currentNote].setStyle({fillStyle: "red"});
+		voice.draw(context,stave);
+		notes[prevNote].setStyle({fillStyle: "black"});
+		voice.draw(context,stave);
+		currentNote++;
+		prevNote++;
+	}
+}
+
+// Render voice
+voice.draw(context, stave);
 
 
-// var dogBarkingBuffer = null;
-// // Fix up prefixing
-// var context = new AudioContext();
 
-// function loadDogSound(url) {
-//   var request = new XMLHttpRequest();
-//   request.open('GET', "../sounds/mnlg.wav", true);
-//   request.responseType = 'arraybuffer';
-
-//   // Decode asynchronously
-//   request.onload = function() {
-//     context.decodeAudioData(request.response, function(buffer) {
-//       dogBarkingBuffer = buffer;
-//     }, onError);
-//   }
-//   request.send();
+// function colorChange() {
+// 	var buttons = document.getElementById("BtnBluesSc-1");
+// 	buttons.style.backgroundColor = "#000000";
 // }
 
-// // Fix up prefixing
-// var context = new AudioContext();
+// 	var x = document.getElementById("BtnBluesSc-1");
+// 	x.addEventListener("mouseover",myAlert);
 
-// function playSound(buffer) {
-//   var source = context.createBufferSource(); // creates a sound source
-//   source.buffer = buffer;                    // tell the source which sound to play
-//   source.connect(context.destination);       // connect the source to the context's destination (the speakers)
-//   source.start(0);                           // play the source now
-//                                              // note: on older systems, may have to use deprecated noteOn(time);
-// }
-
-
-
-
-
-//create, tune, start and connect each oscillator sinea, sineb and sinec
-var sinea = audioCtx.createOscillator();
-sinea.frequency.value = 440;
-sinea.type = "sine";
-sinea.start();
-sinea.connect(volume);
-
-
-var sineb = audioCtx.createOscillator();
-sineb.frequency.value = 523.25;
-sineb.type = "sine";
-sineb.start();
-sineb.connect(volume);
-
-
-var sinec = audioCtx.createOscillator();
-sinec.frequency.value = 698.46;
-sinec.type = "sine";
-sinec.start();
-sinec.connect(volume);
-
-volume.gain.value=0.1;
-
-
-
-
-
-// var sampler = new Tone.Player("../sounds/mnlg.wav", function() {
-// 	console.log("samples loaded");
-// })
-
-// sampler.connect();
-
-// nx.onload = function() {
-// 	button1.on('*',function(data) {
-// 	console.log("button pressed!");
-// 		sampler.start();
-// 	});
-// }
-
-
+// 	function myAlert() {
+// 		alert("What?");
+// 	}

@@ -169,6 +169,10 @@ button.KeyButton{
     display:inline-block;
 }
 
+#BtnBluesSc-1 {
+	background-color: #18b4e9;
+}
+
 button.Key7Button{
 	box-sizing: border-box;
 	background-color: #18b4e9;
@@ -331,4 +335,7 @@ span.Check{
 span.Cross{
 	font-size:90px;
 	color: red;
+}
+
+#img-blu-sc-c {
 }
