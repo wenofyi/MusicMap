@@ -1,6 +1,6 @@
 VF = Vex.Flow;
 
-// Create an SVG renderer and attach it to the DIV element named "boo".
+// Create an SVG renderer and attach it to the DIV element named "img-blu-sc-c".
 var div = document.getElementById("img-blu-sc-c")
 var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
 
@@ -9,10 +9,10 @@ renderer.resize(800, 200);
 var context = renderer.getContext();
 context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 
-// Create a stave of width 400 at position 10, 40 on the canvas.
+// Create a stave of width 780 at position 10, 40 on the canvas.
 var stave = new VF.Stave(10, 40, 780);
 
-// Add a clef and time signature.
+// Add a clef.
 stave.addClef("treble");
 
 // Connect it to the rendering context and draw!
@@ -37,10 +37,10 @@ var notes = [
 var voice = new VF.Voice({num_beats: 13,  beat_value: 1});
 voice.addTickables(notes);
 
-// Format and justify the notes to 400 pixels.
+// Format and justify the notes to 760 pixels.
 var formatter = new VF.Formatter().joinVoices([voice]).format([voice], 760);
 
-//FAILED highlighting notes over time
+//Highlight notes over time
 var currentNote = 0;
 var prevNote = currentNote - 1;
 
