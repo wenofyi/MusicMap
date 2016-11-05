@@ -132,6 +132,7 @@ button.BackButton{
     font-size: 14px;
     cursor: pointer;
     float:right;
+    /*visibility: hidden;*/
 }
 
 button.BackButton:hover{
@@ -153,7 +154,23 @@ button.TopicButton{
     display:inline-block;
 }
 
-button.KeyButton{
+#blu-sc{
+	background-color: #e00d0d;
+}
+
+#dom-7th{
+	background-color: #e00d0d; //red
+}
+
+#blu-bas{
+	background-color: #6adb2e; //green
+}
+
+#maj-7th{
+	background-color: #fcc316; //orange
+}
+
+button.KeyButton, .blu-sc, .dom-7th{
 	box-sizing: border-box;
 	background-color: #18b4e9;
 	color: white;
@@ -213,6 +230,7 @@ table.KeyTable{
 table.CheckBoxes{
 	margin:auto;
 	padding-top: 50px;
+	padding-bottom: 10px;
 }
 
 td.CheckBoxes{
@@ -337,5 +355,69 @@ span.Cross{
 	color: red;
 }
 
-#img-blu-sc-c {
+div.scaleType{
+	visibility: hidden;
+}
+
+div.progType{
+	visibility: hidden;
+}
+
+div.scaleKey{
+	visibility: hidden;
+}
+
+.soundFile{
+	visibility: hidden;
+}
+
+#detector{
+	display: inline-block;
+	position: relative;
+	left: 690px;
+	top: 65px;
+	border: 1px solid;
+	border-color: #cccccc;
+	color: #ff0000;
+}
+
+.pitch{
+	text-align: center;
+}
+
+.note{
+	text-align: center;
+}
+
+#note{
+	font-size: 50px;
+}
+
+#flat { display: none; }
+#sharp { display: none; }
+.flat #flat { display: inline; }
+.sharp #sharp { display: inline; }
+
+#detune{
+	text-align: center;
+}
+
+div.prevPage{
+	visibility: hidden;
+}
+
+div.nextPage{
+	visibility: hidden;
+}
+
+.movingBar{
+	position: relative;
+	left:40px;
+	top:70px;
+	background-color: rgba(255,0,0,0.5);
+	padding: 20px;
+}
+
+.scaleImg{
+	padding: 0px;
 }
