@@ -55,7 +55,7 @@ var flats = [
 ]
 
 var moreSharps = [
-{note:"b#/4", freq:261.63},
+{note:"b#/3", freq:261.63},
 {note:"c#/4", freq:277.18},
 {note:"d/4", freq:293.66},
 {note:"d#/4", freq:311.13},
@@ -67,7 +67,7 @@ var moreSharps = [
 {note:"a/4", freq:440.00},
 {note:"a#/4", freq:466.16},
 {note:"b/4", freq:493.88},
-{note:"b#/5", freq:523.25},
+{note:"b#/4", freq:523.25},
 {note:"c#/5", freq:554.37},
 {note:"d/5", freq:587.33},
 {note:"d#/5", freq:622.25},
@@ -146,6 +146,7 @@ var maj7Sc = [
 {deg:12, acc:false},
 {deg:13, acc:false},
 {deg:12, acc:false},
+{deg:10, acc:false},
 {deg:8, acc:false},
 {deg:7, acc:true},
 {deg:5, acc:false},

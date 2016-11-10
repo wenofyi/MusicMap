@@ -17,16 +17,24 @@
 
 		<div class="Instructions">Play 3 times</div>
 
-		<!-- <div id="test"></div> -->
+		</br></br>
+		<button class="GoButton" onclick="toggleLiveInput()">Click to start</button>
+
+		<div id="detector" class="vague">
+			<div class="pitch"><span id="pitch">--</span>Hz</div>
+			<div class="note"><span id="note">--</span></div>
+			<canvas id="output" width=100 height=0></canvas>
+			<div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
+		</div>
 
 		<div class="scaleType">bluesSc</div>
 		<div class="scaleKey">11</div>
+		<div class="nextPage">g-test.html</div>
 
-	<script type="text/javascript" src="../resources/scripts/nexusUI.js" ></script>
-    <script type="text/javascript" src="../resources/scripts/Tone.js" ></script>
     <script type="text/javascript" src="../resources/scripts/vexflow-min.js"></script>
-    <script type="text/javascript" src="../resources/scripts/jquery.min.js"></script>
-	<script type="text/javascript" src="../resources/scripts/main.js"></script>
+	<script type="text/javascript" src="../resources/scripts/pitchdetect.js"></script>
+	<script type="text/javascript" src="../resources/scripts/notate.js"></script>
+
 	</div>
 
 </body>

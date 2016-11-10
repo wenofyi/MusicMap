@@ -17,10 +17,28 @@
 
 		<table class="CheckBoxes">
 			<tr>
-				<td class="CheckBoxes"><span class="Check">&#10004;</span></td>
-				<td class="CheckBoxes"><span class="Cross">&#10008;</span></td>
-				<td class="CheckBoxes"> </td>				
+				<td class="CheckBoxes" id="CheckBox1"></td>
+				<td class="CheckBoxes" id="CheckBox2"></td>
+				<td class="CheckBoxes" id="CheckBox3"></td>				
 		</table>
+
+		</br>
+		<button class="GoButton" onclick="toggleLiveInput()">Click to start</button>
+
+		<div id="detector" class="vague">
+			<div class="pitch"><span id="pitch">--</span>Hz</div>
+			<div class="note"><span id="note">--</span></div>
+			<canvas id="output" width=100 height=0></canvas>
+			<div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
+		</div>
+
+		<div class="scaleType">bluesSc</div>
+		<div class="scaleKey">10</div>
+		<div class="prevPage">c-prac.html</div>
+		<div class="nextPage">c-improv.html</div>
+
+	<script type="text/javascript" src="../resources/scripts/pitchdetect.js"></script>
+	<script type="text/javascript" src="../resources/scripts/test.js"></script>
 	</div>
 
 </body>

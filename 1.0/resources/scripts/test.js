@@ -162,6 +162,11 @@ function completeTest() {
 
 	if(tickCount==3){
 		var nextPage = document.getElementsByClassName("nextPage")[0].childNodes[0].nodeValue;
+		if((nextPage=="dom-7ths.html")||(nextPage=="maj-7ths.html")||(nextPage=="min-7ths.html")||
+			(nextPage=="dim-7ths.html")||(nextPage=="aug-7ths.html")){
+			localStorage.setItem(document.getElementsByClassName("scaleType")[0].childNodes[0].nodeValue+
+				(scaleKey-1),new Date());
+		}
 		clearInterval(myInterval);
 		alert("Great job!");
 		window.location.href = nextPage;
@@ -176,6 +181,7 @@ function completeTest() {
 		document.getElementById("CheckBox3").innerHTML = "";
 		retakeCount++;
 		testCount = 0;
+		tickCount = 0;
 	}
 }
 

@@ -110,6 +110,7 @@ window.onload = function() {
 		} );
 	}
 	request.send();
+	setTimeout(function readyButton() {document.getElementsByClassName("GoButton")[0].innerHTML = "Click to start";},1000);
 }
 
 function togglePlayback() {
@@ -130,11 +131,12 @@ function togglePlayback() {
     sourceNode.start( 0 );
     isPlaying = true;
 
-    var tempo = 105.5;
+    var tempo = 97;
     var intervalTiming = (1/(tempo/60))*1000;
-    console.log(intervalTiming);
-    var moveCursor = setInterval(highlightBars,intervalTiming);
-
+    var countIn = 6600;
+    setTimeout(function startCursor() {setInterval(highlightBars,intervalTiming);},countIn);
+    completeImprov();
+	    
     return "stop";
 }
 
@@ -169,8 +171,14 @@ function highlightBars(){
 }
 
 
+// Keys
+var keySigMaj = ["C","G","D","A","E","B","Fs","Db","Ab","Eb","Bb","F"];
+var keySigMin = ["Am","Em","Bm","F#m","C#m","G#m","D#m","Bbm","Fm","Cm","Gm","Dm"];
+
+
 function completeImprov() {
 	var nextPage = document.getElementsByClassName("nextPage")[0].childNodes[0].nodeValue;
+	localStorage.setItem(progType+(scaleKey-1),new Date());
 	alert("Great job!");
 	window.location.href = nextPage;
 }

@@ -154,7 +154,7 @@ button.TopicButton{
     display:inline-block;
 }
 
-#blu-sc{
+/*#blu-sc{
 	background-color: #e00d0d;
 }
 
@@ -168,9 +168,9 @@ button.TopicButton{
 
 #maj-7th{
 	background-color: #fcc316; //orange
-}
+}*/
 
-button.KeyButton, .blu-sc, .dom-7th{
+button.KeyButton, .blu-sc, .dom-7th, .maj-7th, .min-7th	{
 	box-sizing: border-box;
 	background-color: #18b4e9;
 	color: white;
@@ -420,4 +420,8 @@ div.nextPage{
 
 .scaleImg{
 	padding: 0px;
+}
+
+#form1{
+	padding-top: 100px;
 }
