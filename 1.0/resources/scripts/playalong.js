@@ -135,7 +135,6 @@ function togglePlayback() {
     var intervalTiming = (1/(tempo/60))*1000;
     var countIn = 6600;
     setTimeout(function startCursor() {setInterval(highlightBars,intervalTiming);},countIn);
-    completeImprov();
 	    
     return "stop";
 }
