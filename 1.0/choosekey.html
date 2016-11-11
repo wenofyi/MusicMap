@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MusicMap 1.0</title>
+		<link href="resources/stylesheets/stylesheet.css" rel="stylesheet" type="text/css"/>
+	</head>
+
+	<body>
+		<script>
+			function transpose(key) {
+				if(key=="Eb"){
+					localStorage.keyoffset = 9;	
+				} else if(key=="F"){
+					localStorage.keyoffset = 7;
+				} else if(key=="G"){
+					localStorage.keyoffset = 5;
+				} else if(key=="A"){
+					localStorage.keyoffset = 3;
+				} else if(key=="Bb"){
+					localStorage.keyoffset = 2;
+				}
+			}
+		</script>
+
+		<div class="FullPageContainer">
+
+			<div class="TitleText">
+				<span class="TitleText-01">Music</span><span class="TitleText-02">Map</span><img class="TitleLogo" src="resources/images/MusicMap%20Notes_opt.png" alt="MusicMap%20Notes.psd" />
+			</div>
+
+			<div class="TextContainer">
+				<p>What key is your instrument in?</p>
+				<div class="ChooseKeyButtons">
+					<a href="home.html"><button class="ChooseKeyButton">C (Concert Pitch)</button></a>
+				</div>
+				<div class="ChooseKeyButtons">
+					<a href="home.html"><button class="ChooseKeyButton">E<sup>&#9837;</sup></button></a>
+				</div>
+				<div class="ChooseKeyButtons">
+					<a href="home.html"><button class="ChooseKeyButton">F</button></a>
+				</div>
+				<div class="ChooseKeyButtons">
+					<a href="home.html"><button class="ChooseKeyButton">G</button></a>
+				</div>
+				<div class="ChooseKeyButtons">
+					<a href="home.html"><button class="ChooseKeyButton">A</button></a>
+				</div>
+				<div class="ChooseKeyButtons">
+					<a href="home.html"><button class="ChooseKeyButton">B<sup>&#9837;</sup></button></a>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="resources/scripts/main.js"></script>
+
+	</body>
+</html>
