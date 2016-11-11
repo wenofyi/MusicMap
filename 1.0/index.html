@@ -9,10 +9,19 @@
 		<script>
 			// Check browser support
 			if (typeof(Storage) !== "undefined") {
-				;
+				if(window.navigator.vendor != "Google Inc."){
+					alert("Make sure you are using the latest version of Google Chrome.");
+				}
 			} else {
 			    alert("Sorry, your browser does not support Web Storage. Trying using the latest version of Google Chrome.");
 			}
+
+			function isFirstTime() {
+				if(localStorage.keyoffset == null){
+					document.getElementsByClassName("GoButton")[0].parentElement.href = "choosekey.html";
+				}
+			}
+
 		</script>
 
 		<div class="FullPageContainer">
@@ -33,7 +42,7 @@
 				</div>
 			</div>
 
-			<a href="home.html"><button class="GoButton">Click to start</button></a>
+			<a href="home.html"><button class="GoButton" onclick="isFirstTime()">Click to start</button></a>
 
 		</div>
 

@@ -154,23 +154,28 @@ button.TopicButton{
     display:inline-block;
 }
 
-/*#blu-sc{
-	background-color: #e00d0d;
+button.ChooseKeyButton{
+	background-color: #18b4e9;
+	color: white;
+	border:none;
+	border-radius: 8px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 200px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Biko;
+    font-size: 20px;
+    cursor: pointer;
+    display:inline-block;
 }
 
-#dom-7th{
-	background-color: #e00d0d; //red
+.ChooseKeyButtons{
+	padding-bottom: 5px;
+	padding-top: 5px;
 }
 
-#blu-bas{
-	background-color: #6adb2e; //green
-}
-
-#maj-7th{
-	background-color: #fcc316; //orange
-}*/
-
-button.KeyButton, .blu-sc, .dom-7th, .maj-7th, .min-7th	{
+button.KeyButton, .blu-sc, .dom-7th, .maj-7th, .min-7th, .blu-bas{
 	box-sizing: border-box;
 	background-color: #18b4e9;
 	color: white;
@@ -424,4 +429,66 @@ div.nextPage{
 
 #form1{
 	padding-top: 100px;
+}
+
+#voicing1{
+	font-size: 30px;
+	position: absolute;
+	top: 130px;
+	left: 125px;
+}#voicing2{
+	font-size: 30px;
+	position: absolute;
+	top:130px;
+	left: 300px;
+}#voicing3{
+	font-size: 30px;
+	position: absolute;
+	top:130px;
+	left: 475px;
+}#voicing4{
+	font-size: 30px;
+	position: absolute;
+	top:130px;
+	left: 650px;
+}#voicing5{
+	font-size: 30px;
+	position: absolute;
+	top:230px;
+	left: 125px;
+}#voicing6{
+	font-size: 30px;
+	position: absolute;
+	top:230px;
+	left: 300px;
+}#voicing7{
+	font-size: 30px;
+	position: absolute;
+	top:230px;
+	left: 475px;
+}#voicing8{
+	font-size: 30px;
+	position: absolute;
+	top:230px;
+	left: 650px;
+}#voicing9{
+	font-size: 30px;
+	position: absolute;
+	top:330px;
+	left: 125px;
+}#voicing10{
+	font-size: 30px;
+	position: absolute;
+	top:330px;
+	left: 300px;
+}#voicing11{
+	font-size: 30px;
+	position: absolute;
+	top:330px;
+	left: 475px;
+}#voicing12{
+	font-size: 30px;
+	position: absolute;
+	top:330px;
+	left: 650px;
 }

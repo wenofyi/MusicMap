@@ -7,7 +7,7 @@ switch(progType){
 		numBars = 12;
 		tonality = "min";
 		break;
-	case "basBlues":
+	case "bluesBas":
 		numBars = 12;
 		tonality = "min";
 		break;
@@ -48,7 +48,7 @@ offset--;
 
 VF = Vex.Flow;
 
-// Create an SVG renderer and attach it to the DIV element named "img-blu-sc-c".
+// Create an SVG renderer and attach it to the DIV element named "progImg".
 var div = document.getElementById("progImg")
 var renderer = new VF.Renderer(div, VF.Renderer.Backends.SVG);
 

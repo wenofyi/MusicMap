@@ -1,7 +1,9 @@
 var bluScButtons = document.querySelectorAll(".blu-sc");
-var bluScMain = document.querySelector("#blu-sc");
 var dom7thButtons = document.querySelectorAll(".dom-7th");
-var dom7thMain = document.querySelector("#dom-7th");
+var maj7thButtons = document.querySelectorAll(".maj-7th");
+var min7thButtons = document.querySelectorAll(".min-7th");
+var bluBasButtons = document.querySelectorAll(".blu-bas");
+
 
 var topicButtons = document.querySelectorAll(".TopicButton");
 
@@ -15,6 +17,7 @@ var greenCounter = 0;
 var orangeCounter = 0;
 var redCounter = 0;
 
+// Blues Scales
 for(var i=0; i<bluScButtons.length; i++){
 	bluScButtons[i].style.backgroundColor = whatColor(localStorage.getItem("bluesSc"+i));
 	if(whatColor(localStorage.getItem("bluesSc"+i))=="#6adb2e"){
@@ -24,7 +27,6 @@ for(var i=0; i<bluScButtons.length; i++){
 	} else if(whatColor(localStorage.getItem("bluesSc"+i))=="#e00d0d"){
 		redCounter++;
 	}
-	// greenCounter++;
 	if(greenCounter+orangeCounter+redCounter==12){
 		if(redCounter>4){
 			localStorage.main0Col = "#e00d0d";
@@ -37,16 +39,8 @@ for(var i=0; i<bluScButtons.length; i++){
 			localStorage.main0Date = new Date();
 		}
 	}
-	// bluScButtons[i].style.backgroundColor = GREEN;
 }
-
-for(var i=0;i<11;i++){
-	topicButtons[i].style.backgroundColor = whatTopicColor(localStorage.getItem("main"+i+"Col"),
-		localStorage.getItem("main"+i+"Date"));
-}
-
-
-
+// DOM 7THS
 for(var i=0; i<dom7thButtons.length; i++){
 	dom7thButtons[i].style.backgroundColor = whatColor(localStorage.getItem("dom7Sc"+i));
 	if(whatColor(localStorage.getItem("dom7Sc"+i))=="#6adb2e"){
@@ -69,6 +63,85 @@ for(var i=0; i<dom7thButtons.length; i++){
 		}
 	}
 }
+// BASIC BLUES
+for(var i=0; i<bluBasButtons.length; i++){
+	bluBasButtons[i].style.backgroundColor = whatColor(localStorage.getItem("bluesBas"+i));
+	if(whatColor(localStorage.getItem("bluesBas"+i))=="#6adb2e"){
+		greenCounter++;
+	} else if(whatColor(localStorage.getItem("bluesBas"+i))=="#fcc316"){
+		orangeCounter++;
+	} else if(whatColor(localStorage.getItem("bluesBas"+i))=="#e00d0d"){
+		redCounter++;
+	}
+	if(greenCounter+orangeCounter+redCounter==12){
+		if(redCounter>4){
+			localStorage.main2Col = "#e00d0d";
+			localStorage.main2Date = new Date();
+		} else if(orangeCounter>=4){
+			localStorage.main2Col = "#fcc316";
+			localStorage.main2Date = new Date();
+		} else {
+			localStorage.main2Col = "#6adb2e";
+			localStorage.main2Date = new Date();
+		}
+	}
+}
+// MAJ 7THS
+for(var i=0; i<maj7thButtons.length; i++){
+	maj7thButtons[i].style.backgroundColor = whatColor(localStorage.getItem("maj7Sc"+i));
+	if(whatColor(localStorage.getItem("maj7Sc"+i))=="#6adb2e"){
+		greenCounter++;
+	} else if(whatColor(localStorage.getItem("maj7Sc"+i))=="#fcc316"){
+		orangeCounter++;
+	} else if(whatColor(localStorage.getItem("maj7Sc"+i))=="#e00d0d"){
+		redCounter++;
+	}
+	if(greenCounter+orangeCounter+redCounter==12){
+		if(redCounter>4){
+			localStorage.main3Col = "#e00d0d";
+			localStorage.main3Date = new Date();
+		} else if(orangeCounter>=4){
+			localStorage.main3Col = "#fcc316";
+			localStorage.main3Date = new Date();
+		} else {
+			localStorage.main3Col = "#6adb2e";
+			localStorage.main3Date = new Date();
+		}
+	}
+}
+// MIN 7THS
+for(var i=0; i<min7thButtons.length; i++){
+	min7thButtons[i].style.backgroundColor = whatColor(localStorage.getItem("min7Sc"+i));
+	if(whatColor(localStorage.getItem("min7Sc"+i))=="#6adb2e"){
+		greenCounter++;
+	} else if(whatColor(localStorage.getItem("min7Sc"+i))=="#fcc316"){
+		orangeCounter++;
+	} else if(whatColor(localStorage.getItem("min7Sc"+i))=="#e00d0d"){
+		redCounter++;
+	}
+	if(greenCounter+orangeCounter+redCounter==12){
+		if(redCounter>4){
+			localStorage.main4Col = "#e00d0d";
+			localStorage.main4Date = new Date();
+		} else if(orangeCounter>=4){
+			localStorage.main4Col = "#fcc316";
+			localStorage.main4Date = new Date();
+		} else {
+			localStorage.main4Col = "#6adb2e";
+			localStorage.main4Date = new Date();
+		}
+	}
+}
+
+
+// TOPIC BUTTONS
+for(var i=0;i<topicButtons.length;i++){
+	topicButtons[i].style.backgroundColor = whatTopicColor(localStorage.getItem("main"+i+"Col"),
+		localStorage.getItem("main"+i+"Date"));
+}
+
+
+
 
 
 // console.log(greenCounter);

@@ -81,6 +81,32 @@ var moreSharps = [
 {note:"b/5", freq:987.77},
 ]
 
+var moreFlats = [
+{note:"c/4", freq:261.63},
+{note:"db/4", freq:277.18},
+{note:"d/4", freq:293.66},
+{note:"eb/4", freq:311.13},
+{note:"fb/4", freq:329.63},
+{note:"f/4", freq:349.23},
+{note:"gb/4", freq:369.99},
+{note:"g/4", freq:392.00},
+{note:"ab/4", freq:415.30},
+{note:"a/4", freq:440.00},
+{note:"bb/4", freq:466.16},
+{note:"cb/5", freq:493.88},
+{note:"c/5", freq:523.25},
+{note:"db/5", freq:554.37},
+{note:"d/5", freq:587.33},
+{note:"eb/5", freq:622.25},
+{note:"fb/5", freq:659.25},
+{note:"f/5", freq:698.46},
+{note:"gb/5", freq:739.99},
+{note:"g/5", freq:783.99},
+{note:"ab/5", freq:830.61},
+{note:"a/5", freq:880.00},
+{note:"bb/5", freq:932.33},
+{note:"cb/6", freq:987.77},
+]
 // Keys
 var keySigMaj = ["C","G","D","A","E","B","F#","Db","Ab","Eb","Bb","F"];
 var keySigMin = ["Am","Em","Bm","F#m","C#m","G#m","D#m","Bbm","Fm","Cm","Gm","Dm"];
@@ -105,7 +131,7 @@ var dom7 = [
 {deg:1, acc:false},
 {deg:5, acc:false},
 {deg:8, acc:false},
-{deg:11, acc:true},
+{deg:11, acc:"lower"},
 {deg:8, acc:false},
 {deg:5, acc:false},
 {deg:1, acc:false}
@@ -117,9 +143,9 @@ var dom7Sc = [
 {deg:6, acc:false},
 {deg:8, acc:false},
 {deg:10, acc:false},
-{deg:11, acc:true},
+{deg:11, acc:"lower"},
 {deg:13, acc:false},
-{deg:11, acc:true},
+{deg:11, acc:"lower"},
 {deg:10, acc:false},
 {deg:8, acc:false},
 {deg:6, acc:false},
@@ -140,7 +166,7 @@ var maj7Sc = [
 {deg:1, acc:false},
 {deg:3, acc:false},
 {deg:5, acc:false},
-{deg:7, acc:true},
+{deg:7, acc:"raise"},
 {deg:8, acc:false},
 {deg:10, acc:false},
 {deg:12, acc:false},
@@ -148,7 +174,7 @@ var maj7Sc = [
 {deg:12, acc:false},
 {deg:10, acc:false},
 {deg:8, acc:false},
-{deg:7, acc:true},
+{deg:7, acc:"raise"},
 {deg:5, acc:false},
 {deg:3, acc:false},
 {deg:1, acc:false}
@@ -168,11 +194,11 @@ var min7Sc = [
 {deg:4, acc:false},
 {deg:6, acc:false},
 {deg:8, acc:false},
-{deg:10, acc:true},
+{deg:10, acc:"raise"},
 {deg:11, acc:false},
 {deg:13, acc:false},
 {deg:11, acc:false},
-{deg:10, acc:true},
+{deg:10, acc:"raise"},
 {deg:8, acc:false},
 {deg:6, acc:false},
 {deg:4, acc:false},
@@ -234,7 +260,19 @@ offset--;
 
 // Check for lydian scales
 function isLydian(array) {
-	if(array[4].deg == 7){
+	if(array[3].deg == 7){
+		if(array.length==15){
+			return true;
+		} else {
+			return false;
+		}
+	} else {
+		return false;
+	}
+}
+
+function isDorian(array){
+	if(array[2].deg == 4){
 		if(array.length==15){
 			return true;
 		} else {
@@ -260,44 +298,217 @@ function isDom7(array){
 
 // Add notes to array for printing to stave
 function printScale() {
-	if((scaleKey > 7)||((scaleKey==1)&&(isDom7(scaleType)))){		
+	// KEYS WITH FLATS INCL. Cb AND Fb
+	if((scaleKey==8)&&(isDom7(scaleType))){
 		for(var i=0;i<scaleType.length;i++){
-			if((flats[scaleType[i].deg+offset].note.lastIndexOf("b") > 0)&&(scaleType[i].acc)){
-				notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" })
-					.addAccidental(0, new VF.Accidental("b"));
-			} else if((i>0)&&(flats[scaleType[i].deg+offset].note[0]==flats[scaleType[i-1].deg+offset].note[0])) {
-				notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" })
-					.addAccidental(0, new VF.Accidental("n"));
-			} else {
-				notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" });
-			}
-		}
-	} else if((scaleKey==7) || ((scaleKey==6)&&(isLydian(scaleType)))) {
-		for(var i=0;i<scaleType.length;i++){
-			if((moreSharps[scaleType[i].deg+offset].note.indexOf("#") > -1)&&(scaleType[i].acc)){
-				notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" })
-					.addAccidental(0, new VF.Accidental("#"));
-			} else if((i>0)&&(moreSharps[scaleType[i].deg+offset].note[0]==moreSharps[scaleType[i-1].deg+offset].note[0])){
-				notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" })
-					.addAccidental(0, new VF.Accidental("n"));
-			} else {
-				notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" });
-			}
-		}
-	} else {
-		for(var i=0;i<scaleType.length;i++){
-			if((sharps[scaleType[i].deg+offset].note.indexOf("#") > -1)&&(scaleType[i].acc)){
-				notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
-					.addAccidental(0, new VF.Accidental("#"));
-			} else if((i>0)&&(sharps[scaleType[i].deg+offset].note[0]==sharps[scaleType[i-1].deg+offset].note[0])){
-				notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
-					.addAccidental(0, new VF.Accidental("n"));
-			} else {
-				notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" });
+			if(i<((scaleType.length-1)/2)){			//ascending
+				if(scaleType[i].acc){
+					// previous note has same note letter
+					if(moreFlats[scaleType[i].deg+offset].note[0]==moreFlats[scaleType[i-1].deg+offset].note[0]){
+						notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+					// next note has same note letter
+					} else if(moreFlats[scaleType[i].deg+offset].note[0]==moreFlats[scaleType[i+1].deg+offset].note[0]){
+						notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("b"));
+						notes[i+1] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+						i++;
+					} else if(scaleType[i].acc=="raise"){
+						notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+					} else if(scaleType[i].acc=="lower"){
+						notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("b"));
+					}
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			} else if(i>((scaleType.length-1)/2)){	//descending
+				// previous note has same note letter
+				if(moreFlats[scaleType[i].deg+offset].note[0]==moreFlats[scaleType[i-1].deg+offset].note[0]){
+					notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("b"));
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			} else {								//note at the top of the scale
+				if(scaleType[i].acc=="raise"){
+					notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" })
+						.addAccidental(0, new VF.Accidental("n"));
+				} else if(scaleType[i].acc=="lower"){
+					notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" })
+						.addAccidental(0, new VF.Accidental("b"));
+					console.log(moreFlats[scaleType[i].deg+offset].note);
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" });
+				}
 			}
 		}
 	}
 
+	// KEYS WITH FLATS
+	else if((scaleKey > 7)||((scaleKey==1)&&(isDom7(scaleType)))){
+
+		for(var i=0;i<scaleType.length;i++){
+			if(i<((scaleType.length-1)/2)){			//ascending
+				if(scaleType[i].acc){
+					// previous note has same note letter
+					if(flats[scaleType[i].deg+offset].note[0]==flats[scaleType[i-1].deg+offset].note[0]){
+						notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+					// next note has same note letter
+					} else if(flats[scaleType[i].deg+offset].note[0]==flats[scaleType[i+1].deg+offset].note[0]){
+						notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("b"));
+						notes[i+1] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+						i++;
+					} else if(scaleType[i].acc=="raise"){
+						notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+					} else if(scaleType[i].acc=="lower"){
+						notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("b"));
+					}
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			} else if(i>((scaleType.length-1)/2)){	//descending
+				// previous note has same note letter
+				if(flats[scaleType[i].deg+offset].note[0]==flats[scaleType[i-1].deg+offset].note[0]){
+					notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("b"));
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			} else {								//note at the top of the scale
+				if(scaleType[i].acc=="raise"){
+					notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" })
+						.addAccidental(0, new VF.Accidental("n"));
+				} else if(scaleType[i].acc=="lower"){
+					notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" })
+						.addAccidental(0, new VF.Accidental("b"));
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [flats[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			}
+		}
+	}
+
+	// KEYS WITH SHARPS INCL. E# AND B#
+	else if((scaleKey==7) || ((scaleKey==6)&&(isLydian(scaleType))) ||
+		((scaleKey==6)&&(isDorian(scaleType)))) {
+
+		for(var i=0;i<scaleType.length;i++){
+			if(i<((scaleType.length-1)/2)){			//ascending
+				if(scaleType[i].acc){
+					// previous note has same note letter
+					if(moreSharps[scaleType[i].deg+offset].note[0]==moreSharps[scaleType[i-1].deg+offset].note[0]){
+						notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("#"));
+					// next note has same note letter
+					} else if(moreSharps[scaleType[i].deg+offset].note[0]==moreSharps[scaleType[i+1].deg+offset].note[0]){
+						notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+						notes[i+1] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("#"));
+						i++;
+					} else if(scaleType[i].acc=="raise"){
+						notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("#"));
+					} else if(scaleType[i].acc=="lower"){
+						notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+					}
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			} else if(i>((scaleType.length-1)/2)){	//descending
+				// previous note has same note letter
+				if(moreSharps[scaleType[i].deg+offset].note[0]==moreSharps[scaleType[i-1].deg+offset].note[0]){
+					notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			} else {								//note at the top of the scale
+				if(scaleType[i].acc=="raise"){
+					notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" })
+						.addAccidental(0, new VF.Accidental("#"));
+				} else if(scaleType[i].acc=="lower"){
+					notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" })
+						.addAccidental(0, new VF.Accidental("n"));
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [moreSharps[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			}
+		}
+	}
+
+	// KEYS WITH SHARPS
+	else {
+		
+		for(var i=0;i<scaleType.length;i++){
+			if(i<((scaleType.length-1)/2)){			//ascending
+				if(scaleType[i].acc){
+					// previous note has same note letter
+					if(sharps[scaleType[i].deg+offset].note[0]==sharps[scaleType[i-1].deg+offset].note[0]){
+						notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("#"));
+					// next note has same note letter
+					} else if(sharps[scaleType[i].deg+offset].note[0]==sharps[scaleType[i+1].deg+offset].note[0]){
+						notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+						notes[i+1] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("#"));
+						i++;
+					} else if(scaleType[i].acc=="raise"){
+						notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("#"));
+					} else if(scaleType[i].acc=="lower"){
+						notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+					}
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			} else if(i>((scaleType.length-1)/2)){	//descending
+				// previous note has same note letter
+				if(sharps[scaleType[i].deg+offset].note[0]==sharps[scaleType[i-1].deg+offset].note[0]){
+					notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
+							.addAccidental(0, new VF.Accidental("n"));
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			} else {								//note at the top of the scale
+				if(scaleType[i].acc=="raise"){
+					notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
+						.addAccidental(0, new VF.Accidental("#"));
+				} else if(scaleType[i].acc=="lower"){
+					notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
+						.addAccidental(0, new VF.Accidental("n"));
+				} else {
+					notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" });
+				}
+			}
+		}
+
+
+
+
+		// for(var i=0;i<scaleType.length;i++){
+		// 	if((sharps[scaleType[i].deg+offset].note.indexOf("#") > -1)&&(scaleType[i].acc)){
+		// 		notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
+		// 			.addAccidental(0, new VF.Accidental("#"));
+		// 	} else if((i>0)&&(sharps[scaleType[i].deg+offset].note[0]==sharps[scaleType[i-1].deg+offset].note[0])){
+		// 		notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" })
+		// 			.addAccidental(0, new VF.Accidental("n"));
+		// 	} else {
+		// 		notes[i] = new VF.StaveNote({ keys: [sharps[scaleType[i].deg+offset].note], duration: "w" });
+		// 	}
+		// }
+	}
 }
 
 

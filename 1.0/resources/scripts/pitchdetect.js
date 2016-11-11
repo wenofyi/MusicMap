@@ -39,7 +39,10 @@ var detectorElem,
 	detuneElem,
 	detuneAmount;
 
-var instrumentOffset = 0;
+var instrumentOffset = localStorage.keyoffset;
+if(instrumentOffset==null){
+	instrumentOffset = 0;
+}
 
 window.onload = function() {
 	audioContext = new AudioContext();
@@ -356,7 +359,7 @@ function updatePitch( time ) {
 	 	pitch = ac;
 	 	pitchElem.innerText = Math.round( pitch ) ;
 	 	var note =  noteFromPitch( pitch );
-		noteElem.innerHTML = noteStrings[(note%12)+instrumentOffset];
+		noteElem.innerHTML = noteStrings[(note%12)-instrumentOffset];
 		var detune = centsOffFromPitch( pitch, note );
 		if (detune == 0 ) {
 			detuneElem.className = "";
