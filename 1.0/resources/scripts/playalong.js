@@ -125,15 +125,15 @@ function togglePlayback() {
 
     sourceNode = audioContext.createBufferSource();
     sourceNode.buffer = theBuffer;
-    sourceNode.loop = true;
+    sourceNode.loop = false;
 
     sourceNode.connect( audioContext.destination );
     sourceNode.start( 0 );
     isPlaying = true;
 
-    var tempo = 97;
+    var tempo = 100;
     var intervalTiming = (1/(tempo/60))*1000;
-    var countIn = 6600;
+    var countIn = 4800;
     setTimeout(function startCursor() {setInterval(highlightBars,intervalTiming);},countIn);
 	    
     return "stop";
@@ -149,6 +149,7 @@ var posY = startY;
 
 var incX = distX/15;
 var lineInc = 0;
+var repeats = 0;
 var cursor = document.getElementsByClassName("movingBar")[0];
 
 function highlightBars(){
@@ -157,8 +158,17 @@ function highlightBars(){
 		cursor.style.left=posX+"px";
 	}
 	else if (lineInc==2){
-		completeImprov();
-		clearInterval();
+		if(repeats==2){
+			completeImprov();
+			clearInterval();
+		} else {
+			repeats++;
+			lineInc = 0;
+			posX = 40;
+			posY = 70;
+			cursor.style.left=posX+"px";
+			cursor.style.top=posY+"px";
+		}
 	}
 	else{
 		posX = 40;
