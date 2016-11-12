@@ -60,7 +60,7 @@ div.FullPageContainer {
 	width: 800px;
 	position: relative;
 	border: 1px solid;
-	overflow: hidden;
+	overflow: scroll;
 }
 
 div.NavBarContainer {
