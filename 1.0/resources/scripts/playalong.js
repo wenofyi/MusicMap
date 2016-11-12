@@ -1,19 +1,31 @@
 // scaleType and scaleKey are invisible divs on the html page to determine which scale gets printed
 var progType = document.getElementsByClassName("progType")[0].childNodes[0].nodeValue;
 var numBars;
+var tempo;
+var repeatsMax;
 
 switch(progType){
 	case "bluesSc":
 		numBars = 12;
 		tonality = "min";
+		tempo = 100;
+		repeatsMax = 2;
 		break;
 	case "bluesBas":
 		numBars = 12;
 		tonality = "min";
+		tempo = 100;
+		repeatsMax = 2;
 		break;
-	case "iivi":
-		numBars = 4;
+	case "iiviMaj":
+		numBars = 12;
 		tonality = "maj";
+		tempo = 88;
+		repeatsMax = 0;
+		break;
+	case "iiviMin":
+		numBars = 12;
+		tonality = "min";
 		break;
 	case "advBlues":
 		numBars = 12;
@@ -131,9 +143,8 @@ function togglePlayback() {
     sourceNode.start( 0 );
     isPlaying = true;
 
-    var tempo = 100;
     var intervalTiming = (1/(tempo/60))*1000;
-    var countIn = 4800;
+    var countIn = (60/tempo)*8000;
     setTimeout(function startCursor() {setInterval(highlightBars,intervalTiming);},countIn);
 	    
     return "stop";
@@ -158,7 +169,7 @@ function highlightBars(){
 		cursor.style.left=posX+"px";
 	}
 	else if (lineInc==2){
-		if(repeats==2){
+		if(repeats==repeatsMax){
 			completeImprov();
 			clearInterval();
 		} else {
