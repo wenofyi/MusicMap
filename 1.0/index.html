@@ -24,6 +24,19 @@
 				}
 			}
 
+			function resetProgress(){
+				for(var i=0;i<12;i++){
+					localStorage.removeItem("bluesSc"+i);
+					localStorage.removeItem("dom7Sc"+i);
+					localStorage.removeItem("bluesBas"+i);
+					localStorage.removeItem("maj7Sc"+i);
+					localStorage.removeItem("min7Sc"+i);
+					localStorage.removeItem("main"+i+"Col");
+					localStorage.removeItem("main"+i+"Date");
+				}
+				alert("Progress reset! Click change instrument to change key.");
+			}
+
 		</script>
 
 		<div class="FullPageContainer">
@@ -45,8 +58,19 @@
 			</div>
 
 			<a href="home.html"><button class="GoButton" onclick="isFirstTime()">Click to start</button></a>
-
+			<div id="optionsContainer">
+				<a href="choosekey.html"><button id="optionsButton1">Change instrument</button></a>
+				<button id="optionsButton2" onclick="resetProgress()">Reset progress</button>
+			</div>
 		</div>
 
+		<script>
+			
+			if(localStorage.keyoffset != null){
+				document.querySelector("#optionsButton1").style.visibility = "visible";
+				document.querySelector("#optionsButton2").style.visibility = "visible";
+			}
+
+		</script>
 	</body>
 </html>

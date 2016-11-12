@@ -66,6 +66,23 @@ div.NavBarContainer {
 	padding: 0;
 }
 
+#optionsContainer{
+	padding-top: 100px;
+	width:32%;
+	height:20px;
+	margin:auto;
+} #optionsButton1{
+	float: left;
+	width:47%;
+	cursor:pointer;
+	visibility: hidden;
+} #optionsButton2{
+	float:right;
+	width:47%;
+	cursor: pointer;
+	visibility: hidden;
+}
+
 div.Padding{
 	padding-bottom: 50px;
 }
@@ -175,7 +192,7 @@ button.ChooseKeyButton{
 	padding-top: 5px;
 }
 
-button.KeyButton, .blu-sc, .dom-7th, .maj-7th, .min-7th, .blu-bas{
+button.KeyButton, .blu-sc, .dom-7th, .maj-7th, .min-7th, .blu-bas, .iiviMaj{
 	box-sizing: border-box;
 	background-color: #18b4e9;
 	color: white;
@@ -276,6 +293,7 @@ div.InstructionsImprov {
 	margin:auto;
 	font-size: 15px;
 	color: #555555;
+	text-align: justify;
 }
 
 .centerText{
@@ -500,4 +518,10 @@ div.nextPage{
 	position: absolute;
 	top:330px;
 	left: 650px;
+}
+
+a.extLink:visited {
+	color:blue;
+}a.extLink:hover {
+	color:red;
 }
