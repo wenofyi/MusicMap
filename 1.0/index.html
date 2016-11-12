@@ -16,6 +16,8 @@
 			    alert("Sorry, your browser does not support Web Storage. Trying using the latest version of Google Chrome.");
 			}
 
+			console.log("Key offset is: "+localStorage.keyoffset);
+
 			function isFirstTime() {
 				if(localStorage.keyoffset == null){
 					document.getElementsByClassName("GoButton")[0].parentElement.href = "choosekey.html";
@@ -45,8 +47,6 @@
 			<a href="home.html"><button class="GoButton" onclick="isFirstTime()">Click to start</button></a>
 
 		</div>
-
-		<script src="resources/scripts/main.js"></script>
 
 	</body>
 </html>

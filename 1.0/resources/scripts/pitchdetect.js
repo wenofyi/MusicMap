@@ -44,11 +44,13 @@ if(instrumentOffset==null){
 	instrumentOffset = 0;
 }
 
+console.log(localStorage.keyoffset);
+
 window.onload = function() {
 	audioContext = new AudioContext();
 	MAX_SIZE = Math.max(4,Math.floor(audioContext.sampleRate/5000));	// corresponds to a 5kHz signal
 	var request = new XMLHttpRequest();
-	request.open("GET", "../resources/sounds/mnlg.wav", true);
+	request.open("GET", "../resources/sounds/Blues-C.wav", true);
 	request.responseType = "arraybuffer";
 	request.onload = function() {
 	  audioContext.decodeAudioData( request.response, function(buffer) { 
@@ -359,7 +361,8 @@ function updatePitch( time ) {
 	 	pitch = ac;
 	 	pitchElem.innerText = Math.round( pitch ) ;
 	 	var note =  noteFromPitch( pitch );
-		noteElem.innerHTML = noteStrings[(note%12)-instrumentOffset];
+	 	// console.log(note+"%12 = "+note%12+" + instrumentOffset = "+(((note%12)+instrumentOffset))%12);
+		noteElem.innerHTML = noteStrings[(((note%12)+instrumentOffset))%12];
 		var detune = centsOffFromPitch( pitch, note );
 		if (detune == 0 ) {
 			detuneElem.className = "";

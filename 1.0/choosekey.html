@@ -8,7 +8,9 @@
 	<body>
 		<script>
 			function transpose(key) {
-				if(key=="Eb"){
+				if(key=="C"){
+					localStorage.keyoffset = 0;
+				} else if(key=="Eb"){
 					localStorage.keyoffset = 9;	
 				} else if(key=="F"){
 					localStorage.keyoffset = 7;
@@ -31,28 +33,25 @@
 			<div class="TextContainer">
 				<p>What key is your instrument in?</p>
 				<div class="ChooseKeyButtons">
-					<a href="home.html"><button class="ChooseKeyButton">C (Concert Pitch)</button></a>
+					<a href="home.html"><button class="ChooseKeyButton" onclick="transpose('C')">C (Concert Pitch)</button></a>
 				</div>
 				<div class="ChooseKeyButtons">
-					<a href="home.html"><button class="ChooseKeyButton">E<sup>&#9837;</sup></button></a>
+					<a href="home.html"><button class="ChooseKeyButton" onclick="transpose('Eb')">E<sup>&#9837;</sup></button></a>
 				</div>
 				<div class="ChooseKeyButtons">
-					<a href="home.html"><button class="ChooseKeyButton">F</button></a>
+					<a href="home.html"><button class="ChooseKeyButton" onclick="transpose('F')">F</button></a>
 				</div>
 				<div class="ChooseKeyButtons">
-					<a href="home.html"><button class="ChooseKeyButton">G</button></a>
+					<a href="home.html"><button class="ChooseKeyButton" onclick="transpose('G')">G</button></a>
 				</div>
 				<div class="ChooseKeyButtons">
-					<a href="home.html"><button class="ChooseKeyButton">A</button></a>
+					<a href="home.html"><button class="ChooseKeyButton" onclick="transpose('A')">A</button></a>
 				</div>
 				<div class="ChooseKeyButtons">
-					<a href="home.html"><button class="ChooseKeyButton">B<sup>&#9837;</sup></button></a>
+					<a href="home.html"><button class="ChooseKeyButton" onclick="transpose('Bb')">B<sup>&#9837;</sup></button></a>
 				</div>
 			</div>
 
 		</div>
-
-		<script src="resources/scripts/main.js"></script>
-
 	</body>
 </html>

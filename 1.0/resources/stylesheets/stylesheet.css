@@ -271,6 +271,11 @@ div.InstructionsImprov {
 	font-size: 30px;
 	color: #18b4e9;
 	text-align: center;
+} div.InstructionsScales {
+	width:60%;
+	margin:auto;
+	font-size: 15px;
+	color: #555555;
 }
 
 .centerText{

@@ -339,7 +339,6 @@ function printScale() {
 				} else if(scaleType[i].acc=="lower"){
 					notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" })
 						.addAccidental(0, new VF.Accidental("b"));
-					console.log(moreFlats[scaleType[i].deg+offset].note);
 				} else {
 					notes[i] = new VF.StaveNote({ keys: [moreFlats[scaleType[i].deg+offset].note], duration: "w" });
 				}
@@ -561,21 +560,18 @@ function highlightNotes() {
 		currentNote = 0;
 		prevNote = currentNote - 1;
 		pracCount++;
-		console.log(pracCount);
 		if(pracCount==3){
 			clearInterval(myInterval);
 			completePrac();
 		}
 	} else if((document.getElementById("note").childNodes[0].nodeValue)==(sharps[scaleType[currentNote].deg+offset].freq)){
 		if(currentNote==0){
-			console.log(sharps[scaleType[currentNote].deg+offset].freq);
 			notes[currentNote].setStyle({fillStyle: "red"});
 			voice.draw(context,stave);
 			currentNote++;
 			prevNote++;
 		}
 		else {
-			console.log(sharps[scaleType[currentNote].deg+offset].freq);
 			notes[currentNote].setStyle({fillStyle: "red"});
 			voice.draw(context,stave);
 			notes[prevNote].setStyle({fillStyle: "black"});
@@ -592,7 +588,6 @@ voice.draw(context, stave);
 
 function completePrac() {
 	var nextPage = document.getElementsByClassName("nextPage")[0].childNodes[0].nodeValue;
-	console.log(nextPage);
 	alert("Great job!");
 	window.location.href = nextPage;
 }
