@@ -166,7 +166,7 @@ var maj7Sc = [
 {deg:1, acc:false},
 {deg:3, acc:false},
 {deg:5, acc:false},
-{deg:7, acc:"raise"},
+{deg:6, acc:false},
 {deg:8, acc:false},
 {deg:10, acc:false},
 {deg:12, acc:false},
@@ -174,7 +174,7 @@ var maj7Sc = [
 {deg:12, acc:false},
 {deg:10, acc:false},
 {deg:8, acc:false},
-{deg:7, acc:"raise"},
+{deg:6, acc:false},
 {deg:5, acc:false},
 {deg:3, acc:false},
 {deg:1, acc:false}
