@@ -205,6 +205,8 @@ var min7Sc = [
 {deg:3, acc:false},
 {deg:1, acc:false}
 ];
+var dim7 = [
+{deg:1, acc:false}];
 
 
 // scaleType and scaleKey are invisible divs on the html page to determine which scale gets printed

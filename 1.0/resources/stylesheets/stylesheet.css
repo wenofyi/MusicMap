@@ -130,6 +130,85 @@ button.GoButton:active {
   transform: translateY(4px);
 }
 
+.TutContainer{
+	margin:auto;
+	width:70%;
+}
+p.Tutorial{
+	padding-top: 20px;
+	text-align: center;
+} span.TutorialDescriptionB{
+	color: #18b4e9;
+	width: 15%;
+	display: inline-block;
+}span.TutorialDescriptionG{
+	color: #6adb2e;
+	width: 15%;
+	display: inline-block;
+}span.TutorialDescriptionO{
+	color: #fcc316;
+	width: 15%;
+	display: inline-block;
+}span.TutorialDescriptionR{
+	color: #e00d0d;
+	width: 15%;
+	display: inline-block;
+}
+
+.TutorialButtonB {
+	box-sizing: border-box;
+	background-color: #18b4e9;
+	color: white;
+	border:none;
+    text-align: center;
+    text-decoration: none;
+    font-family: Biko;
+    font-size: 50px;
+   	width:120px;
+	height: 120px;
+    margin: 20px;
+    display:inline-block;
+} .TutorialButtonG {
+	box-sizing: border-box;
+	background-color: #6adb2e;
+	color: white;
+	border:none;
+    text-align: center;
+    text-decoration: none;
+    font-family: Biko;
+    font-size: 50px;
+   	width:120px;
+	height: 120px;
+    margin: 20px;
+    display:inline-block;
+} .TutorialButtonO {
+	box-sizing: border-box;
+	background-color: #fcc316;
+	color: white;
+	border:none;
+    text-align: center;
+    text-decoration: none;
+    font-family: Biko;
+    font-size: 50px;
+   	width:120px;
+	height: 120px;
+    margin: 20px;
+    display:inline-block;
+} .TutorialButtonR {
+	box-sizing: border-box;
+	background-color: #e00d0d;
+	color: white;
+	border:none;
+    text-align: center;
+    text-decoration: none;
+    font-family: Biko;
+    font-size: 50px;
+   	width:120px;
+	height: 120px;
+    margin: 20px;
+    display:inline-block;
+}
+
 button.MenuButton{
 	background-color: #555555;
 	color: white;
@@ -202,7 +281,8 @@ button.ChooseKeyButton{
 	padding-top: 5px;
 }
 
-button.KeyButton, .blu-sc, .dom-7th, .maj-7th, .min-7th, .blu-bas, .iiviMaj{
+button.KeyButton, .blu-sc, .dom-7th, .maj-7th, .min-7th, .blu-bas, .iiviMaj,
+		.dim-7th, .aug-7th, .hdim-7th, .majmin-7th{
 	box-sizing: border-box;
 	background-color: #18b4e9;
 	color: white;
@@ -385,6 +465,12 @@ img.Improv12Bars{
 	height:300px;
 	margin:auto;
 	display: block;
+}
+
+img.FullPage{
+	width:799px;
+	border: none;
+
 }
 
 span.Check{
