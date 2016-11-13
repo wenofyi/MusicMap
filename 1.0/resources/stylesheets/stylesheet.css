@@ -1,3 +1,12 @@
+@font-face{
+	font-family: Biko;
+	src: url(../fonts/biko_regular.otf);
+}
+@font-face{
+	font-family: Existence;
+	src: url(../fonts/existence_light.otf);
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -308,14 +317,14 @@ div.TitleText {
 
 span.TitleText-01 {
 	color:#18b4e9;
-	font-family: Helvetica, sans-serif;
+	font-family: Existence, Helvetica, sans-serif;
 	font-size:90px;
 	font-style:normal;
 	font-weight:100;
 }
 
 span.TitleText-02 {
-	font-family: Helvetica, sans-serif;
+	font-family: Existence, Helvetica, sans-serif;
 	font-size:90px;
 	font-style:normal;
 	font-weight:100;
