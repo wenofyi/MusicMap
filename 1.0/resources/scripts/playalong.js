@@ -127,7 +127,7 @@ window.onload = function() {
 	}
 	request.send();
 	setTimeout(function readyButton() {document.getElementsByClassName("GoButton")[0].innerHTML = 
-		"Click to start";},2000);
+		"Click to start";},2500);
 }
 
 function togglePlayback() {
