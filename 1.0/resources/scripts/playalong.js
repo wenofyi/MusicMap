@@ -1,6 +1,7 @@
 // scaleType and scaleKey are invisible divs on the html page to determine which scale gets printed
 var progType = document.getElementsByClassName("progType")[0].childNodes[0].nodeValue;
 var numBars;
+var tonality;
 var tempo;
 var repeatsMax;
 
@@ -13,7 +14,7 @@ switch(progType){
 		break;
 	case "bluesBas":
 		numBars = 12;
-		tonality = "min";
+		tonality = "maj";
 		tempo = 100;
 		repeatsMax = 2;
 		break;
@@ -27,9 +28,11 @@ switch(progType){
 		numBars = 12;
 		tonality = "min";
 		break;
-	case "advBlues":
+	case "bluesAdv":
 		numBars = 12;
-		tonality = "min";
+		tonality = "maj";
+		tempo = 125;
+		repeatsMax = 2;
 		break;
 	case "rhythm":
 		numBars = 32;
@@ -53,6 +56,7 @@ if(tonality == "maj"){
 	keySig = keySigMin[scaleKey-1];
 }
 offset--;
+console.log(keySig);
 
 
 // **************STAVE AND NOTE GENERATION**************

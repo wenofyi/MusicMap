@@ -258,6 +258,18 @@ button.TopicButton{
     font-size: 20px;
     cursor: pointer;
     display:inline-block;
+} .TopicButtonSoon {
+	background-color: #CCCCCC;
+	color: white;
+	border:none;
+	border-radius: 8px;
+	padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Biko;
+    font-size: 20px;
+    cursor: pointer;
+    display:inline-block;
 }
 
 button.ChooseKeyButton{
@@ -282,7 +294,7 @@ button.ChooseKeyButton{
 }
 
 button.KeyButton, .blu-sc, .dom-7th, .maj-7th, .min-7th, .blu-bas, .iiviMaj,
-		.dim-7th, .aug-7th, .hdim-7th, .majmin-7th{
+		.dim-7th, .aug-7th, .hdim-7th, .majmin-7th, .blu-adv{
 	box-sizing: border-box;
 	background-color: #18b4e9;
 	color: white;
@@ -503,7 +515,7 @@ div.scaleKey{
 	display: inline-block;
 	position: relative;
 	left: 690px;
-	top: 65px;
+	top: 55px;
 	border: 1px solid;
 	border-color: #cccccc;
 	color: #ff0000;
@@ -554,66 +566,82 @@ div.nextPage{
 	padding-top: 100px;
 }
 
+span.voicings{
+	font-size: 22px;
+	position: absolute;
+}
 #voicing1{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top: 130px;
-	left: 125px;
+	left: 75px;
 }#voicing2{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:130px;
-	left: 300px;
+	left: 250px;
 }#voicing3{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:130px;
-	left: 475px;
+	left: 425px;
 }#voicing4{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:130px;
-	left: 650px;
+	left: 600px;
+}#voicing4b{
+	top:130px;
+	left: 700px;
 }#voicing5{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:230px;
-	left: 125px;
+	left: 75px;
 }#voicing6{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:230px;
-	left: 300px;
+	left: 250px;
 }#voicing7{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:230px;
-	left: 475px;
+	left: 425px;
 }#voicing8{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:230px;
-	left: 650px;
+	left: 600px;
+}#voicing8b{
+	top:230px;
+	left:700px;
 }#voicing9{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:330px;
-	left: 125px;
+	left: 75px;
 }#voicing10{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:330px;
-	left: 300px;
+	left: 250px;
 }#voicing11{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:330px;
-	left: 475px;
+	left: 425px;
+}#voicing11b{
+	top:330px;
+	left: 525px;
 }#voicing12{
-	font-size: 30px;
+	font-size: 22px;
 	position: absolute;
 	top:330px;
-	left: 650px;
+	left: 600px;
+}#voicing12b{
+	top:330px;
+	left:700px;
 }
 
 a.extLink:visited {

@@ -206,7 +206,16 @@ var min7Sc = [
 {deg:1, acc:false}
 ];
 var dim7 = [
-{deg:1, acc:false}];
+{deg:1, acc:false},
+{deg:4, acc:false},
+{deg:7, acc:"lower"},
+{deg:10, acc:"lower"},
+{deg:13, acc:false},
+{deg:10, acc:"lower"},
+{deg:7, acc:"lower"},
+{deg:4, acc:false},
+{deg:1, acc:false}
+];
 
 
 // scaleType and scaleKey are invisible divs on the html page to determine which scale gets printed
@@ -214,7 +223,8 @@ var scaleType = document.getElementsByClassName("scaleType")[0].childNodes[0].no
 var tonality;
 if(scaleType == "bluesSc"||
 	scaleType == "min7"||
-	scaleType == "min7Sc"){
+	scaleType == "min7Sc"||
+	scaleType == "dim7"){
 	tonality = "min";
 } else{
 	tonality = "maj";
@@ -240,6 +250,9 @@ switch(scaleType){
 		break;
 	case "min7Sc":
 		scaleType = min7Sc;
+		break;
+	case "dim7":
+		scaleType = dim7;
 		break;
 	default:
 		alert("Scale type not found");
