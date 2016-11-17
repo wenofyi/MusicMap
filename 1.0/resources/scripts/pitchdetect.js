@@ -42,6 +42,8 @@ var detectorElem,
 var instrumentOffset = localStorage.keyoffset;
 if(instrumentOffset==null){
 	instrumentOffset = 0;
+} else {
+	instrumentOffset = Number(instrumentOffset);
 }
 
 console.log(localStorage.keyoffset);
@@ -362,8 +364,8 @@ function updatePitch( time ) {
 	 	pitchElem.innerText = Math.round( pitch ) ;
 	 	var note =  noteFromPitch( pitch );
 	 	// console.log(note+"%12 = "+note%12+" + instrumentOffset = "+(((note%12)+instrumentOffset))%12);
-		noteElem.innerHTML = noteStrings[(note%12)];
-		console.log((((note%12)+instrumentOffset))%12);
+		noteElem.innerHTML = noteStrings[(note+instrumentOffset)%12];
+		// console.log(noteStrings[(note+instrumentOffset)%12]);	
 		var detune = centsOffFromPitch( pitch, note );
 		if (detune == 0 ) {
 			detuneElem.className = "";
