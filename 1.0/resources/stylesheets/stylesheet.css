@@ -63,17 +63,29 @@ button {
     transition-duration: 0.4s;
 }
 
+.FullPageContainer::-webkit-scrollbar { display: none; }
+
 div.FullPageContainer {
 	margin:auto;
 	height:700px;
 	width: 800px;
 	position: relative;
 	border: 1px solid;
-	/*overflow: auto;*/
+	overflow: auto;
 }
 
 div.NavBarContainer {
 	padding: 0;
+}
+
+div.FloatingFooter {
+	margin: auto;
+	position: relative;
+	height: 100px;
+	width: 800px;
+	border-left: 1px solid;
+	border-bottom: 1px solid;
+	border-right: 1px solid;
 }
 
 #optionsContainer{
@@ -294,7 +306,7 @@ button.ChooseKeyButton{
 }
 
 button.KeyButton, .blu-sc, .dom-7th, .maj-7th, .min-7th, .blu-bas, .iiviMaj,
-		.dim-7th, .aug-7th, .hdim-7th, .majmin-7th, .blu-adv{
+		.dim-7th, .aug-7th, .hdim-7th, .majmin-7th, .blu-adv, .rtm-chg{
 	box-sizing: border-box;
 	background-color: #18b4e9;
 	color: white;
@@ -573,18 +585,27 @@ span.voicings{
 #voicing1{
 	font-size: 22px;
 	position: absolute;
-	top: 130px;
+	top:130px;
 	left: 75px;
+}#voicing1b{
+	top:130px;
+	left:175px;
 }#voicing2{
 	font-size: 22px;
 	position: absolute;
 	top:130px;
 	left: 250px;
+}#voicing2b{
+	top:130px;
+	left:350px;
 }#voicing3{
 	font-size: 22px;
 	position: absolute;
 	top:130px;
 	left: 425px;
+}#voicing3b{
+	top:130px;
+	left:525px;
 }#voicing4{
 	font-size: 22px;
 	position: absolute;
@@ -598,16 +619,25 @@ span.voicings{
 	position: absolute;
 	top:230px;
 	left: 75px;
+}#voicing5b{
+	top:230px;
+	left:175px;
 }#voicing6{
 	font-size: 22px;
 	position: absolute;
 	top:230px;
 	left: 250px;
+}#voicing6b{
+	top:230px;
+	left:350px;
 }#voicing7{
 	font-size: 22px;
 	position: absolute;
 	top:230px;
 	left: 425px;
+}#voicing7b{
+	top:230px;
+	left:525px;
 }#voicing8{
 	font-size: 22px;
 	position: absolute;
@@ -621,11 +651,17 @@ span.voicings{
 	position: absolute;
 	top:330px;
 	left: 75px;
+}#voicing9b{
+	top:330px;
+	left:175px;
 }#voicing10{
 	font-size: 22px;
 	position: absolute;
 	top:330px;
 	left: 250px;
+}#voicing10b{
+	top:330px;
+	left:350px;
 }#voicing11{
 	font-size: 22px;
 	position: absolute;
@@ -641,6 +677,126 @@ span.voicings{
 	left: 600px;
 }#voicing12b{
 	top:330px;
+	left:700px;
+}#voicing13{
+	top:430px;
+	left:75px;
+}#voicing13b{
+	top:430px;
+	left:175px;
+}#voicing14{
+	top:430px;
+	left:250px;
+}#voicing14b{
+	top:430px;
+	left:350px;
+}#voicing15{
+	top:430px;
+	left:425px;
+}#voicing15b{
+	top:430px;
+	left:525px;
+}#voicing16{
+	top:430px;
+	left:600px;
+}#voicing16b{
+	top:430px;
+	left:700px;
+}#voicing17{
+	top:530px;
+	left:75px;
+}#voicing17b{
+	top:530px;
+	left:175px;
+}#voicing18{
+	top:530px;
+	left:250px;
+}#voicing18b{
+	top:530px;
+	left:350px;
+}#voicing19{
+	top:530px;
+	left:425px;
+}#voicing19b{
+	top:530px;
+	left:525px;
+}#voicing20{
+	top:530px;
+	left:600px;
+}#voicing20b{
+	top:530px;
+	left:700px;
+}#voicing21{
+	top:630px;
+	left:75px;
+}#voicing21b{
+	top:630px;
+	left:175px;
+}#voicing22{
+	top:630px;
+	left:250px;
+}#voicing22b{
+	top:630px;
+	left:350px;
+}#voicing23{
+	top:630px;
+	left:425px;
+}#voicing23b{
+	top:630px;
+	left:525px;
+}#voicing24{
+	top:630px;
+	left:600px;
+}#voicing24b{
+	top:630px;
+	left:700px;
+}#voicing25{
+	top:730px;
+	left:75px;
+}#voicing25b{
+	top:730px;
+	left:175px;
+}#voicing26{
+	top:730px;
+	left:250px;
+}#voicing26b{
+	top:730px;
+	left:350px;
+}#voicing27{
+	top:730px;
+	left:425px;
+}#voicing27b{
+	top:730px;
+	left:525px;
+}#voicing28{
+	top:730px;
+	left:600px;
+}#voicing28b{
+	top:730px;
+	left:700px;
+}#voicing29{
+	top:830px;
+	left:75px;
+}#voicing29b{
+	top:830px;
+	left:175px;
+}#voicing30{
+	top:830px;
+	left:250px;
+}#voicing30b{
+	top:830px;
+	left:350px;
+}#voicing31{
+	top:830px;
+	left:425px;
+}#voicing31b{
+	top:830px;
+	left:525px;
+}#voicing32{
+	top:830px;
+	left:600px;
+}#voicing32b{
+	top:830px;
 	left:700px;
 }
 

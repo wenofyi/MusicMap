@@ -40,6 +40,62 @@ var bluesAdv = [
 {deg:2,type:"m7"},
 {deg:7,type:"7"}
 ];
+var rtmChg = [
+{deg:0,type:""},
+{deg:9,type:"7"},
+{deg:2,type:"m7"},
+{deg:7,type:"7"},
+{deg:0,type:""},
+{deg:9,type:"7"},
+{deg:2,type:"m7"},
+{deg:7,type:"7"},
+{deg:0,type:""},
+{deg:0,type:"7/D"},
+{deg:5,type:""},
+{deg:10,type:"7"},
+{deg:4,type:"m7"},
+{deg:9,type:"7"},
+{deg:2,type:"m7"},
+{deg:7,type:"7"},
+{deg:0,type:""},
+{deg:9,type:"7"},
+{deg:2,type:"m7"},
+{deg:7,type:"7"},
+{deg:0,type:""},
+{deg:9,type:"7"},
+{deg:2,type:"m7"},
+{deg:7,type:"7"},
+{deg:0,type:""},
+{deg:0,type:"7/D"},
+{deg:5,type:""},
+{deg:10,type:"7"},
+{deg:2,type:"m7"},
+{deg:7,type:"7"},
+{deg:0,type:""},
+{deg:4,type:"7"},
+{deg:4,type:"7"},
+{deg:9,type:"7"},
+{deg:9,type:"7"},
+{deg:2,type:"7"},
+{deg:2,type:"7"},
+{deg:7,type:"7"},
+{deg:7,type:"7"},
+{deg:0,type:""},
+{deg:9,type:"7"},
+{deg:2,type:"m7"},
+{deg:7,type:"7"},
+{deg:0,type:""},
+{deg:9,type:"7"},
+{deg:2,type:"m7"},
+{deg:7,type:"7"},
+{deg:0,type:""},
+{deg:0,type:"7/D"},
+{deg:5,type:""},
+{deg:10,type:"7"},
+{deg:2,type:"m7"},
+{deg:7,type:"7"},
+{deg:0,type:""}
+]
 
 var progType = document.querySelectorAll(".progType")[0].childNodes[0].nodeValue;
 var scaleKey = document.querySelectorAll(".scaleKey")[0].childNodes[0].nodeValue;
@@ -63,7 +119,7 @@ switch(progType){
 		numBars = 16; // Number of voicing symbols on chart
 		tonality = "maj";
 		break;
-	case "rhythm":
+	case "rtmChg":
 		numBars = 32;
 		tonality = "maj";
 		break;
@@ -97,4 +153,15 @@ if(progType=="bluesBas"){
 		document.querySelectorAll(".voicings")[i].innerHTML = noteLetters[(bluesAdv[i].deg+offset)%12]+
 				bluesAdv[i].type;
 	}
+} else if(progType=="rtmChg"){
+	resizeArea();
+	for(var i=0;i<rtmChg.length;i++){
+		document.querySelectorAll(".voicings")[i].innerHTML = noteLetters[(rtmChg[i].deg+offset)%12]+
+				rtmChg[i].type;
+	}
+}
+
+
+function resizeArea() {
+	document.querySelectorAll(".FullPageContainer")[0].style.height = "600px";
 }
