@@ -98,7 +98,7 @@ var wrongNoteThreshold = 200;
 var tickCount = 0; // Number of correct repeats out of 3
 var retakeCount = 0; // Number of repeats of the test. Two wrong tests = go back to practice.
 
-var myInterval = setInterval(testNotes, 10);
+var myInterval = setInterval(testNotes, 100);
 
 function testNotes() {
 	if (currentNote>=scaleType.length){
