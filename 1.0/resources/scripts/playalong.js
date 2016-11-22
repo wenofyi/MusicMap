@@ -63,7 +63,7 @@ switch(progType){
 	case "rtmChg":
 		numBars = 32;
 		tonality = "maj";
-		tempo = 125;
+		tempo = 150;
 		repeatsMax = 0;
 		linesMax = 7;
 		break;
