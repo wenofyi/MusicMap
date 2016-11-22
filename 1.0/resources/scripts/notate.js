@@ -271,6 +271,7 @@ offset--;
 
 // alert(offset);
 
+
 // **************STAVE AND NOTE GENERATION**************
 
 // Check for lydian scales

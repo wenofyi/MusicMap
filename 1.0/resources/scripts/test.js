@@ -88,6 +88,7 @@ if(tonality == "maj"){
 }
 offset--;
 
+
 // ********************* PITCH DETECTION ********************
 
 var currentNote = 0;

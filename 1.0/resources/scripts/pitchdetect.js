@@ -46,7 +46,14 @@ if(instrumentOffset==null){
 	instrumentOffset = Number(instrumentOffset);
 }
 
-console.log(localStorage.keyoffset);
+// Start on pressing space
+
+document.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 32) {
+        document.querySelectorAll(".GoButton")[0].click();
+    }
+});
 
 window.onload = function() {
 	audioContext = new AudioContext();
@@ -177,6 +184,7 @@ function toggleLiveInput() {
                 "optional": []
             },
         }, gotStream);
+    document.querySelectorAll(".GoButton")[0].style.visibility = "hidden";
 }
 
 function togglePlayback() {

@@ -91,6 +91,16 @@ offset--;
 console.log(keySig);
 
 
+// Start on pressing space
+
+document.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 32) {
+        document.querySelectorAll(".GoButton")[0].click();
+    }
+});
+
+
 // **************STAVE AND NOTE GENERATION**************
 
 
