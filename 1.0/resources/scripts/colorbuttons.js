@@ -4,6 +4,8 @@ var maj7thButtons = document.querySelectorAll(".maj-7th");
 var min7thButtons = document.querySelectorAll(".min-7th");
 var bluBasButtons = document.querySelectorAll(".blu-bas");
 var iiviMajButtons = document.querySelectorAll(".iiviMaj");
+var bluAdvButtons = document.querySelectorAll(".blu-adv");
+var rtmChgButtons = document.querySelectorAll(".rtm-chg");
 
 
 var topicButtons = document.querySelectorAll(".TopicButton");
@@ -141,6 +143,54 @@ for(var i=0; i<iiviMajButtons.length; i++){
 	} else if(whatColor(localStorage.getItem("iiviMaj"+i))=="#fcc316"){
 		orangeCounter++;
 	} else if(whatColor(localStorage.getItem("iiviMaj"+i))=="#e00d0d"){
+		redCounter++;
+	}
+	if(greenCounter+orangeCounter+redCounter==12){
+		if(redCounter>4){
+			localStorage.main4Col = "#e00d0d";
+			localStorage.main4Date = new Date();
+		} else if(orangeCounter>=4){
+			localStorage.main4Col = "#fcc316";
+			localStorage.main4Date = new Date();
+		} else {
+			localStorage.main4Col = "#6adb2e";
+			localStorage.main4Date = new Date();
+		}
+	}
+}
+
+// Advanced Blues
+for(var i=0; i<bluAdvButtons.length; i++){
+	bluAdvButtons[i].style.backgroundColor = whatColor(localStorage.getItem("blu-adv"+i));
+	if(whatColor(localStorage.getItem("blu-adv"+i))=="#6adb2e"){
+		greenCounter++;
+	} else if(whatColor(localStorage.getItem("blu-adv"+i))=="#fcc316"){
+		orangeCounter++;
+	} else if(whatColor(localStorage.getItem("blu-adv"+i))=="#e00d0d"){
+		redCounter++;
+	}
+	if(greenCounter+orangeCounter+redCounter==12){
+		if(redCounter>4){
+			localStorage.main4Col = "#e00d0d";
+			localStorage.main4Date = new Date();
+		} else if(orangeCounter>=4){
+			localStorage.main4Col = "#fcc316";
+			localStorage.main4Date = new Date();
+		} else {
+			localStorage.main4Col = "#6adb2e";
+			localStorage.main4Date = new Date();
+		}
+	}
+}
+
+// Rhythm Changes
+for(var i=0; i<rtmChgButtons.length; i++){
+	rtmChgButtons[i].style.backgroundColor = whatColor(localStorage.getItem("rtm-chg"+i));
+	if(whatColor(localStorage.getItem("rtm-chg"+i))=="#6adb2e"){
+		greenCounter++;
+	} else if(whatColor(localStorage.getItem("rtm-chg"+i))=="#fcc316"){
+		orangeCounter++;
+	} else if(whatColor(localStorage.getItem("rtm-chg"+i))=="#e00d0d"){
 		redCounter++;
 	}
 	if(greenCounter+orangeCounter+redCounter==12){
