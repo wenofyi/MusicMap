@@ -10,6 +10,8 @@ var rtmChgButtons = document.querySelectorAll(".rtm-chg");
 
 var topicButtons = document.querySelectorAll(".TopicButton");
 
+var newOrder = [1,12,11,10,9,8,7,6,5,4,3,2];
+
 const GREEN = "#6adb2e";
 const ORANGE = "#fcc316";
 const RED = "#e00d0d";
@@ -22,12 +24,12 @@ var redCounter = 0;
 
 // Blues Scales
 for(var i=0; i<bluScButtons.length; i++){
-	bluScButtons[i].style.backgroundColor = whatColor(localStorage.getItem("bluesSc"+i));
-	if(whatColor(localStorage.getItem("bluesSc"+i))=="#6adb2e"){
+	bluScButtons[i].style.backgroundColor = whatColor(localStorage.getItem("bluesSc"+newOrder[i]));
+	if(whatColor(localStorage.getItem("bluesSc"+newOrder[i]))=="#6adb2e"){
 		greenCounter++;
-	} else if(whatColor(localStorage.getItem("bluesSc"+i))=="#fcc316"){
+	} else if(whatColor(localStorage.getItem("bluesSc"+newOrder[i]))=="#fcc316"){
 		orangeCounter++;
-	} else if(whatColor(localStorage.getItem("bluesSc"+i))=="#e00d0d"){
+	} else if(whatColor(localStorage.getItem("bluesSc"+newOrder[i]))=="#e00d0d"){
 		redCounter++;
 	}
 	if(greenCounter+orangeCounter+redCounter==12){
@@ -45,12 +47,12 @@ for(var i=0; i<bluScButtons.length; i++){
 }
 // DOM 7THS
 for(var i=0; i<dom7thButtons.length; i++){
-	dom7thButtons[i].style.backgroundColor = whatColor(localStorage.getItem("dom7Sc"+i));
-	if(whatColor(localStorage.getItem("dom7Sc"+i))=="#6adb2e"){
+	dom7thButtons[i].style.backgroundColor = whatColor(localStorage.getItem("dom7Sc"+newOrder[i]));
+	if(whatColor(localStorage.getItem("dom7Sc"+newOrder[i]))=="#6adb2e"){
 		greenCounter++;
-	} else if(whatColor(localStorage.getItem("dom7Sc"+i))=="#fcc316"){
+	} else if(whatColor(localStorage.getItem("dom7Sc"+newOrder[i]))=="#fcc316"){
 		orangeCounter++;
-	} else if(whatColor(localStorage.getItem("dom7Sc"+i))=="#e00d0d"){
+	} else if(whatColor(localStorage.getItem("dom7Sc"+newOrder[i]))=="#e00d0d"){
 		redCounter++;
 	}
 	if(greenCounter+orangeCounter+redCounter==12){
@@ -68,12 +70,12 @@ for(var i=0; i<dom7thButtons.length; i++){
 }
 // BASIC BLUES
 for(var i=0; i<bluBasButtons.length; i++){
-	bluBasButtons[i].style.backgroundColor = whatColor(localStorage.getItem("bluesBas"+i));
-	if(whatColor(localStorage.getItem("bluesBas"+i))=="#6adb2e"){
+	bluBasButtons[i].style.backgroundColor = whatColor(localStorage.getItem("bluesBas"+newOrder[i]));
+	if(whatColor(localStorage.getItem("bluesBas"+newOrder[i]))=="#6adb2e"){
 		greenCounter++;
-	} else if(whatColor(localStorage.getItem("bluesBas"+i))=="#fcc316"){
+	} else if(whatColor(localStorage.getItem("bluesBas"+newOrder[i]))=="#fcc316"){
 		orangeCounter++;
-	} else if(whatColor(localStorage.getItem("bluesBas"+i))=="#e00d0d"){
+	} else if(whatColor(localStorage.getItem("bluesBas"+newOrder[i]))=="#e00d0d"){
 		redCounter++;
 	}
 	if(greenCounter+orangeCounter+redCounter==12){
@@ -91,12 +93,12 @@ for(var i=0; i<bluBasButtons.length; i++){
 }
 // MAJ 7THS
 for(var i=0; i<maj7thButtons.length; i++){
-	maj7thButtons[i].style.backgroundColor = whatColor(localStorage.getItem("maj7Sc"+i));
-	if(whatColor(localStorage.getItem("maj7Sc"+i))=="#6adb2e"){
+	maj7thButtons[i].style.backgroundColor = whatColor(localStorage.getItem("maj7Sc"+newOrder[i]));
+	if(whatColor(localStorage.getItem("maj7Sc"+newOrder[i]))=="#6adb2e"){
 		greenCounter++;
-	} else if(whatColor(localStorage.getItem("maj7Sc"+i))=="#fcc316"){
+	} else if(whatColor(localStorage.getItem("maj7Sc"+newOrder[i]))=="#fcc316"){
 		orangeCounter++;
-	} else if(whatColor(localStorage.getItem("maj7Sc"+i))=="#e00d0d"){
+	} else if(whatColor(localStorage.getItem("maj7Sc"+newOrder[i]))=="#e00d0d"){
 		redCounter++;
 	}
 	if(greenCounter+orangeCounter+redCounter==12){
@@ -114,12 +116,12 @@ for(var i=0; i<maj7thButtons.length; i++){
 }
 // MIN 7THS
 for(var i=0; i<min7thButtons.length; i++){
-	min7thButtons[i].style.backgroundColor = whatColor(localStorage.getItem("min7Sc"+i));
-	if(whatColor(localStorage.getItem("min7Sc"+i))=="#6adb2e"){
+	min7thButtons[i].style.backgroundColor = whatColor(localStorage.getItem("min7Sc"+newOrder[i]));
+	if(whatColor(localStorage.getItem("min7Sc"+newOrder[i]))=="#6adb2e"){
 		greenCounter++;
-	} else if(whatColor(localStorage.getItem("min7Sc"+i))=="#fcc316"){
+	} else if(whatColor(localStorage.getItem("min7Sc"+newOrder[i]))=="#fcc316"){
 		orangeCounter++;
-	} else if(whatColor(localStorage.getItem("min7Sc"+i))=="#e00d0d"){
+	} else if(whatColor(localStorage.getItem("min7Sc"+newOrder[i]))=="#e00d0d"){
 		redCounter++;
 	}
 	if(greenCounter+orangeCounter+redCounter==12){
@@ -137,72 +139,72 @@ for(var i=0; i<min7thButtons.length; i++){
 }
 // ii-V7-I
 for(var i=0; i<iiviMajButtons.length; i++){
-	iiviMajButtons[i].style.backgroundColor = whatColor(localStorage.getItem("iiviMaj"+i));
-	if(whatColor(localStorage.getItem("iiviMaj"+i))=="#6adb2e"){
+	iiviMajButtons[i].style.backgroundColor = whatColor(localStorage.getItem("iiviMaj"+newOrder[i]));
+	if(whatColor(localStorage.getItem("iiviMaj"+newOrder[i]))=="#6adb2e"){
 		greenCounter++;
-	} else if(whatColor(localStorage.getItem("iiviMaj"+i))=="#fcc316"){
+	} else if(whatColor(localStorage.getItem("iiviMaj"+newOrder[i]))=="#fcc316"){
 		orangeCounter++;
-	} else if(whatColor(localStorage.getItem("iiviMaj"+i))=="#e00d0d"){
+	} else if(whatColor(localStorage.getItem("iiviMaj"+newOrder[i]))=="#e00d0d"){
 		redCounter++;
 	}
 	if(greenCounter+orangeCounter+redCounter==12){
 		if(redCounter>4){
-			localStorage.main4Col = "#e00d0d";
-			localStorage.main4Date = new Date();
+			localStorage.main5Col = "#e00d0d";
+			localStorage.main5Date = new Date();
 		} else if(orangeCounter>=4){
-			localStorage.main4Col = "#fcc316";
-			localStorage.main4Date = new Date();
+			localStorage.main5Col = "#fcc316";
+			localStorage.main5Date = new Date();
 		} else {
-			localStorage.main4Col = "#6adb2e";
-			localStorage.main4Date = new Date();
+			localStorage.main5Col = "#6adb2e";
+			localStorage.main5Date = new Date();
 		}
 	}
 }
 
 // Advanced Blues
 for(var i=0; i<bluAdvButtons.length; i++){
-	bluAdvButtons[i].style.backgroundColor = whatColor(localStorage.getItem("blu-adv"+i));
-	if(whatColor(localStorage.getItem("blu-adv"+i))=="#6adb2e"){
+	bluAdvButtons[i].style.backgroundColor = whatColor(localStorage.getItem("bluesAdv"+newOrder[i]));
+	if(whatColor(localStorage.getItem("bluesAdv"+newOrder[i]))=="#6adb2e"){
 		greenCounter++;
-	} else if(whatColor(localStorage.getItem("blu-adv"+i))=="#fcc316"){
+	} else if(whatColor(localStorage.getItem("bluesAdv"+newOrder[i]))=="#fcc316"){
 		orangeCounter++;
-	} else if(whatColor(localStorage.getItem("blu-adv"+i))=="#e00d0d"){
+	} else if(whatColor(localStorage.getItem("bluesAdv"+newOrder[i]))=="#e00d0d"){
 		redCounter++;
 	}
 	if(greenCounter+orangeCounter+redCounter==12){
 		if(redCounter>4){
-			localStorage.main4Col = "#e00d0d";
-			localStorage.main4Date = new Date();
+			localStorage.main8Col = "#e00d0d";
+			localStorage.main8Date = new Date();
 		} else if(orangeCounter>=4){
-			localStorage.main4Col = "#fcc316";
-			localStorage.main4Date = new Date();
+			localStorage.main8Col = "#fcc316";
+			localStorage.main8Date = new Date();
 		} else {
-			localStorage.main4Col = "#6adb2e";
-			localStorage.main4Date = new Date();
+			localStorage.main8Col = "#6adb2e";
+			localStorage.main8Date = new Date();
 		}
 	}
 }
 
 // Rhythm Changes
 for(var i=0; i<rtmChgButtons.length; i++){
-	rtmChgButtons[i].style.backgroundColor = whatColor(localStorage.getItem("rtm-chg"+i));
-	if(whatColor(localStorage.getItem("rtm-chg"+i))=="#6adb2e"){
+	rtmChgButtons[i].style.backgroundColor = whatColor(localStorage.getItem("rtmChg"+newOrder[i]));
+	if(whatColor(localStorage.getItem("rtmChg"+newOrder[i]))=="#6adb2e"){
 		greenCounter++;
-	} else if(whatColor(localStorage.getItem("rtm-chg"+i))=="#fcc316"){
+	} else if(whatColor(localStorage.getItem("rtmChg"+newOrder[i]))=="#fcc316"){
 		orangeCounter++;
-	} else if(whatColor(localStorage.getItem("rtm-chg"+i))=="#e00d0d"){
+	} else if(whatColor(localStorage.getItem("rtmChg"+newOrder[i]))=="#e00d0d"){
 		redCounter++;
 	}
 	if(greenCounter+orangeCounter+redCounter==12){
 		if(redCounter>4){
-			localStorage.main4Col = "#e00d0d";
-			localStorage.main4Date = new Date();
+			localStorage.main9Col = "#e00d0d";
+			localStorage.main9Date = new Date();
 		} else if(orangeCounter>=4){
-			localStorage.main4Col = "#fcc316";
-			localStorage.main4Date = new Date();
+			localStorage.main9Col = "#fcc316";
+			localStorage.main9Date = new Date();
 		} else {
-			localStorage.main4Col = "#6adb2e";
-			localStorage.main4Date = new Date();
+			localStorage.main9Col = "#6adb2e";
+			localStorage.main9Date = new Date();
 		}
 	}
 }
@@ -275,6 +277,9 @@ function resetColors(){
 		localStorage.removeItem("dom7Sc"+i);
 		localStorage.removeItem("maj7Sc"+i);
 		localStorage.removeItem("min7Sc"+i);
+		localStorage.removeItem("bluesBas"+i);
+		localStorage.removeItem("bluesAdv"+i);
+		localStorage.removeItem("rtmChg"+i);
 		localStorage.removeItem("main"+i+"Col");
 		localStorage.removeItem("main"+i+"Date");
 	}

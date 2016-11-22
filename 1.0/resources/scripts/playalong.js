@@ -267,7 +267,7 @@ function scrollDown() {
 
 function completeImprov() {
 	var nextPage = document.getElementsByClassName("nextPage")[0].childNodes[0].nodeValue;
-	localStorage.setItem(progType+(scaleKey-1),new Date());
+	localStorage.setItem(progType+(scaleKey),new Date());
 	alert("Great job!");
 	window.location.href = nextPage;
 }

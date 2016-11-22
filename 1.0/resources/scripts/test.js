@@ -165,7 +165,7 @@ function completeTest() {
 		if((nextPage=="dom-7ths.html")||(nextPage=="maj-7ths.html")||(nextPage=="min-7ths.html")||
 			(nextPage=="dim-7ths.html")||(nextPage=="aug-7ths.html")){
 			localStorage.setItem(document.getElementsByClassName("scaleType")[0].childNodes[0].nodeValue+
-				(scaleKey-1),new Date());
+				(scaleKey),new Date());
 		}
 		clearInterval(myInterval);
 		alert("Great job!");
