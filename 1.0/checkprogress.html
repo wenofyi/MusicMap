@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MusicMap Progress Check</title>
+</head>
+<body>
+	<div class="results"></div>
+
+	<script>
+	var newOrder = [1,12,11,10,9,8,7,6,5,4,3,2];
+
+		for(i=0;i<12;i++){
+			if(localStorage.getItem("bluesSc"+newOrder[i])!=null){
+				console.log("Blues Scales ("+i+"):");
+				console.log(localStorage.getItem("bluesSc"+newOrder[i]));
+			}
+		} 
+
+		for(i=0;i<12;i++){
+			if(localStorage.getItem("dom7Sc"+newOrder[i])!=null){
+				console.log("Dom 7ths ("+i+"):");
+				console.log(localStorage.getItem("dom7Sc"+newOrder[i]));
+			}
+		} 
+
+		for(i=0;i<12;i++){
+			if(localStorage.getItem("bluesBas"+newOrder[i])!=null){
+				console.log("Basic Blues ("+i+"):");
+				console.log(localStorage.getItem("bluesBas"+newOrder[i]));
+			} 
+		}
+
+		for(i=0;i<12;i++){
+			if(localStorage.getItem("maj7Sc"+newOrder[i])!=null){
+				console.log("Maj 7ths ("+i+"):");
+				console.log(localStorage.getItem("maj7Sc"+newOrder[i]));
+			} 
+		}
+
+		for(i=0;i<12;i++){
+			if(localStorage.getItem("min7Sc"+newOrder[i])!=null){
+				console.log("Min 7ths ("+i+"):");
+				console.log(localStorage.getItem("min7Sc"+newOrder[i]));
+			} 
+		}
+
+		for(i=0;i<12;i++){
+			if(localStorage.getItem("bluesAdv"+newOrder[i])!=null){
+				console.log("Advanced Blues ("+i+"):");
+				console.log(localStorage.getItem("bluesAdv"+newOrder[i]));
+			} 
+		}
+
+		for(i=0;i<12;i++){
+			if(localStorage.getItem("rtmChg"+newOrder[i])!=null){
+				console.log("Rhythm Changes ("+i+"):");
+				console.log(localStorage.getItem("rtmChg"+newOrder[i]));
+			} 
+		}
+
+		for(i=0;i<12;i++){
+			if(localStorage.getItem("main"+newOrder[i]+"Col")!=null){
+				console.log("Main Button Current Color ("+i+"):");
+				console.log(localStorage.getItem("main"+newOrder[i]+"Col"));
+			} 
+		}
+
+		for(i=0;i<12;i++){
+			if(localStorage.getItem("main"+newOrder[i]+"Date")!=null){
+				console.log("Main Button Date Completed ("+i+"):");
+				console.log(localStorage.getItem("main"+newOrder[i]+"Date"));
+			}
+		}
+				
+	</script>
+</body>
+</html>
